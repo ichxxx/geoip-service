@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package api.geoip;
+
+import "google/api/annotations.proto";
+
+option go_package = "geoip_serivce/api/geoip;geoip";
+option java_multiple_files = true;
+option java_package = "api.geoip";
+
+service Geoip {
+    rpc GetGeoInfo (GetGeoInfoRequest) returns (GetGeoInfoReply) {
+        option (google.api.http) = {
+            get: "/geoip"
+        };
+    }
+}
+
+message GetGeoInfoRequest {
+    string ip = 1;
+}
+
+message GetGeoInfoReply {
+    message Location {
+        double latitude  = 1;
+        double longitude = 2;
+    }
+
+    string   country  = 1;
+    string   province = 2;
+    string   city     = 3;
+    Location location = 4;
+    string   isp      = 5;
+}

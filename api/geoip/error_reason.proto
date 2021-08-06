@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package api.geoip;
+import "errors/errors.proto";
+
+option go_package = "geoip_serivce/api/geoip;geoip";
+option java_multiple_files = true;
+option java_package = "geoip.errors";
+option objc_class_prefix = "APIGeoipErrors";
+
+enum ErrorReason {
+  option (errors.default_code) = 500;
+
+  GEO_NOT_FOUND = 0 [(errors.code) = 404];
+}

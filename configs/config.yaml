@@ -1,0 +1,12 @@
+server:
+  http:
+    addr: 0.0.0.0:18080
+    timeout: 1s
+  grpc:
+    addr: 0.0.0.0:19000
+    timeout: 1s
+data:
+  region:
+    file: ../../data/region.db
+  location:
+    file: ../../data/location.db
